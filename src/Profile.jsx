@@ -4,6 +4,7 @@ import "./Profile.css";
 
 function Profile() {
   const navigate = useNavigate();
+
   const [profile, setProfile] = useState({
     name: "",
     college: "",
@@ -43,6 +44,8 @@ function Profile() {
     "Cybersecurity",
   ];
 
+  /* ================= INPUT HANDLER ================= */
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
 
@@ -52,6 +55,8 @@ function Profile() {
     }));
   };
 
+  /* ================= SKILL / INTEREST SELECT ================= */
+
   const toggleSelection = (field, value) => {
     setProfile((previous) => ({
       ...previous,
@@ -60,6 +65,8 @@ function Profile() {
         : [...previous[field], value],
     }));
   };
+
+  /* ================= PROFILE COMPLETION ================= */
 
   const completionItems = [
     profile.name,
@@ -71,6 +78,8 @@ function Profile() {
     profile.interests.length > 0,
     profile.goals,
     profile.lookingFor,
+    profile.linkedin,
+    profile.github,
   ];
 
   const completedItems = completionItems.filter(Boolean).length;
@@ -78,26 +87,74 @@ function Profile() {
   const profileCompletion = Math.round(
     (completedItems / completionItems.length) * 100,
   );
+
+  /* ================= SUBMIT ================= */
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log("NEXORA PROFILE:", profile);
+    /*
+      Add custom skill to selected skills
+    */
 
-    // Save profile in browser storage
-    localStorage.setItem("nexoraProfile", JSON.stringify(profile));
+    const finalSkills = [...profile.skills];
+
+    if (
+      profile.customSkill.trim() &&
+      !finalSkills.includes(profile.customSkill.trim())
+    ) {
+      finalSkills.push(profile.customSkill.trim());
+    }
+
+    /*
+      Add custom interest to selected interests
+    */
+
+    const finalInterests = [...profile.interests];
+
+    if (
+      profile.customInterest.trim() &&
+      !finalInterests.includes(profile.customInterest.trim())
+    ) {
+      finalInterests.push(profile.customInterest.trim());
+    }
+
+    /*
+      Create final profile
+    */
+
+    const finalProfile = {
+      ...profile,
+      skills: finalSkills,
+      interests: finalInterests,
+      customSkill: "",
+      customInterest: "",
+    };
+
+    /*
+      Save profile in browser
+    */
+
+    localStorage.setItem("nexoraProfile", JSON.stringify(finalProfile));
+
+    console.log("NEXORA PROFILE:", finalProfile);
 
     alert("Your NEXORA profile has been created!");
+
+    /*
+      Go to Profile Preview
+    */
 
     navigate("/profile-preview");
   };
 
   return (
     <div className="profile-page">
-      {/* NAVIGATION */}
+      {/* ================= NAVIGATION ================= */}
 
       <nav className="profile-navbar">
         <a href="/" className="profile-logo">
-          NEXORA<span></span>
+          NEXORA<span>.</span>
         </a>
 
         <a href="/" className="profile-back">
@@ -105,7 +162,7 @@ function Profile() {
         </a>
       </nav>
 
-      {/* PAGE INTRODUCTION */}
+      {/* ================= PAGE INTRODUCTION ================= */}
 
       <header className="profile-header">
         <div className="profile-badge">NEXORA • STUDENT PROFILE</div>
@@ -122,13 +179,16 @@ function Profile() {
         </p>
       </header>
 
-      {/* PROFILE FORM */}
+      {/* ================= PROFILE FORM ================= */}
 
       <main className="profile-container">
+        {/* PROFILE COMPLETION */}
+
         <div className="profile-completion">
           <div className="completion-header">
             <div>
               <span>PROFILE COMPLETION</span>
+
               <strong>{profileCompletion}%</strong>
             </div>
 
@@ -142,13 +202,17 @@ function Profile() {
           <div className="completion-bar">
             <div
               className="completion-progress"
-              style={{ width: `${profileCompletion}%` }}
+              style={{
+                width: `${profileCompletion}%`,
+              }}
             />
           </div>
         </div>
+
         <form onSubmit={handleSubmit}>
-          {/* 01 — STUDIES & EXPERIENCE */}
+          {/* ================================================= */}
           {/* 01 — BACKGROUND */}
+          {/* ================================================= */}
 
           <section className="profile-section">
             <div className="profile-step">01</div>
@@ -160,6 +224,7 @@ function Profile() {
 
               <div className="profile-fields">
                 {/* FULL NAME */}
+
                 <div className="profile-field">
                   <label htmlFor="name">Full Name</label>
 
@@ -175,6 +240,7 @@ function Profile() {
                 </div>
 
                 {/* COLLEGE */}
+
                 <div className="profile-field">
                   <label htmlFor="college">College / University</label>
 
@@ -190,6 +256,7 @@ function Profile() {
                 </div>
 
                 {/* COURSE */}
+
                 <div className="profile-field">
                   <label htmlFor="studies">Course / Branch</label>
 
@@ -205,6 +272,7 @@ function Profile() {
                 </div>
 
                 {/* YEAR */}
+
                 <div className="profile-field">
                   <label htmlFor="year">Year of Study</label>
 
@@ -216,9 +284,13 @@ function Profile() {
                     required
                   >
                     <option value="">Select your year</option>
+
                     <option value="1st Year">1st Year</option>
+
                     <option value="2nd Year">2nd Year</option>
+
                     <option value="3rd Year">3rd Year</option>
+
                     <option value="4th Year">4th Year</option>
                   </select>
                 </div>
@@ -237,15 +309,20 @@ function Profile() {
                   required
                 >
                   <option value="">Select experience level</option>
+
                   <option value="Beginner">Beginner</option>
+
                   <option value="Intermediate">Intermediate</option>
+
                   <option value="Advanced">Advanced</option>
                 </select>
               </div>
             </div>
           </section>
 
+          {/* ================================================= */}
           {/* 02 — SKILLS */}
+          {/* ================================================= */}
 
           <section className="profile-section">
             <div className="profile-step">02</div>
@@ -254,6 +331,8 @@ function Profile() {
               <h2>Your Skills</h2>
 
               <p>Select the technical skills you currently have.</p>
+
+              {/* DEFAULT SKILLS */}
 
               <div className="profile-options">
                 {skillOptions.map((skill) => (
@@ -275,10 +354,29 @@ function Profile() {
                   </button>
                 ))}
               </div>
+
+              {/* CUSTOM SKILL */}
+
+              <div className="custom-input-row">
+                <div className="profile-field">
+                  <label htmlFor="customSkill">Don't see your skill?</label>
+
+                  <input
+                    id="customSkill"
+                    type="text"
+                    name="customSkill"
+                    value={profile.customSkill}
+                    onChange={handleInputChange}
+                    placeholder="Example: TensorFlow, Docker, Figma..."
+                  />
+                </div>
+              </div>
             </div>
           </section>
 
+          {/* ================================================= */}
           {/* 03 — INTERESTS */}
+          {/* ================================================= */}
 
           <section className="profile-section">
             <div className="profile-step">03</div>
@@ -288,30 +386,53 @@ function Profile() {
 
               <p>Choose the areas of technology you are interested in.</p>
 
+              {/* DEFAULT INTERESTS */}
+
               <div className="profile-options">
                 {interestOptions.map((interest) => (
                   <button
                     key={interest}
                     type="button"
                     className={
-                      profile.interests?.includes(interest)
+                      profile.interests.includes(interest)
                         ? "profile-option selected"
                         : "profile-option"
                     }
                     onClick={() => toggleSelection("interests", interest)}
                   >
                     <span className="option-check">
-                      {profile.interests?.includes(interest) ? "✓" : "+"}
+                      {profile.interests.includes(interest) ? "✓" : "+"}
                     </span>
 
                     {interest}
                   </button>
                 ))}
               </div>
+
+              {/* CUSTOM INTEREST */}
+
+              <div className="custom-input-row">
+                <div className="profile-field">
+                  <label htmlFor="customInterest">
+                    Don't see your interest?
+                  </label>
+
+                  <input
+                    id="customInterest"
+                    type="text"
+                    name="customInterest"
+                    value={profile.customInterest}
+                    onChange={handleInputChange}
+                    placeholder="Example: Robotics, FinTech, Space Tech..."
+                  />
+                </div>
+              </div>
             </div>
           </section>
 
+          {/* ================================================= */}
           {/* 04 — GOALS */}
+          {/* ================================================= */}
 
           <section className="profile-section">
             <div className="profile-step">04</div>
@@ -332,7 +453,9 @@ function Profile() {
             </div>
           </section>
 
-          {/* 05 — TEAMMATE / PROJECT PREFERENCE */}
+          {/* ================================================= */}
+          {/* 05 — LOOKING FOR */}
+          {/* ================================================= */}
 
           <section className="profile-section">
             <div className="profile-step">05</div>
@@ -356,7 +479,9 @@ function Profile() {
             </div>
           </section>
 
+          {/* ================================================= */}
           {/* 06 — PROFESSIONAL IDENTITY */}
+          {/* ================================================= */}
 
           <section className="profile-section">
             <div className="profile-step">06</div>
@@ -365,10 +490,11 @@ function Profile() {
               <h2>Professional Identity</h2>
 
               <p>
-                Adding your LinkedIn profile can help other students understand
-                who you are and build trust. This section is completely
-                optional.
+                Your LinkedIn profile is required to continue. It helps NEXORA
+                establish a more trustworthy student identity.
               </p>
+
+              {/* LINKEDIN */}
 
               <div className="profile-field">
                 <label htmlFor="linkedin">
@@ -381,7 +507,7 @@ function Profile() {
                     id="linkedin"
                     type="url"
                     name="linkedin"
-                    value={profile.linkedin || ""}
+                    value={profile.linkedin}
                     onChange={handleInputChange}
                     placeholder="https://www.linkedin.com/in/your-name"
                     required
@@ -400,14 +526,15 @@ function Profile() {
                 </div>
               </div>
 
+              {/* CREATE LINKEDIN */}
+
               <div className="identity-create">
                 <div>
                   <strong>Don't have LinkedIn yet?</strong>
+
                   <p>
-                    Your LinkedIn profile is required to create your NEXORA
-                    profile. It helps establish a more trustworthy student
-                    identity and allows teammates to understand your
-                    professional background.
+                    A LinkedIn profile is required to continue. Create one
+                    before completing your NEXORA profile.
                   </p>
                 </div>
 
@@ -421,22 +548,26 @@ function Profile() {
                 </a>
               </div>
 
+              {/* LINKEDIN TRUST */}
+
               <div className="identity-proof">
                 <div className="identity-proof-icon">✓</div>
 
                 <div>
-                  <strong>Why add LinkedIn?</strong>
+                  <strong>Why is LinkedIn required?</strong>
 
                   <p>
-                    A professional profile can help teammates understand your
-                    background and make collaboration more trustworthy.
+                    It helps teammates understand your professional background
+                    and makes collaboration on NEXORA more trustworthy.
                   </p>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* 07 — SKILL PROOF & ACHIEVEMENTS */}
+          {/* ================================================= */}
+          {/* 07 — SKILL PROOF */}
+          {/* ================================================= */}
 
           <section className="profile-section">
             <div className="profile-step">07</div>
@@ -444,13 +575,9 @@ function Profile() {
             <div className="profile-section-content">
               <h2>Skill Proof & Achievements</h2>
 
-              <p>
-                Showcase your coding experience and achievements. A GitHub
-                account is required to create your NEXORA profile and helps
-                teammates understand your technical work.
-              </p>
+              <p>Showcase your projects, coding experience and achievements.</p>
 
-              {/* ================= GITHUB ================= */}
+              {/* GITHUB */}
 
               <div className="proof-card">
                 <div className="proof-card-header">
@@ -468,14 +595,14 @@ function Profile() {
                 <input
                   type="text"
                   name="github"
-                  value={profile.github || ""}
+                  value={profile.github}
                   onChange={handleInputChange}
                   placeholder="Enter GitHub username"
                   required
                 />
 
                 <div className="proof-help">
-                  <span>GitHub is required to continue.</span>
+                  <span>Don't have GitHub yet?</span>
 
                   <a
                     href="https://github.com/signup"
@@ -487,7 +614,7 @@ function Profile() {
                 </div>
               </div>
 
-              {/* ================= CODEFORCES ================= */}
+              {/* CODEFORCES */}
 
               <div className="proof-card">
                 <div className="proof-card-header">
@@ -503,13 +630,13 @@ function Profile() {
                 <input
                   type="text"
                   name="codeforces"
-                  value={profile.codeforces || ""}
+                  value={profile.codeforces}
                   onChange={handleInputChange}
                   placeholder="Enter Codeforces handle"
                 />
 
                 <div className="proof-help">
-                  <span>Don't have Codeforces yet? That's okay.</span>
+                  <span>Don't have Codeforces yet?</span>
 
                   <a
                     href="https://codeforces.com/register"
@@ -521,7 +648,7 @@ function Profile() {
                 </div>
               </div>
 
-              {/* ================= OTHER ACHIEVEMENT ================= */}
+              {/* OTHER ACHIEVEMENT */}
 
               <div className="profile-field achievement-field">
                 <label htmlFor="achievement">
@@ -533,17 +660,17 @@ function Profile() {
                   id="achievement"
                   type="text"
                   name="achievement"
-                  value={profile.achievement || ""}
+                  value={profile.achievement}
                   onChange={handleInputChange}
                   placeholder="Example: Hackathon winner, AWS certificate, Chess rating..."
                 />
 
                 <small className="achievement-note">
-                  No achievements yet? You can add them later.
+                  No achievements yet? That's completely fine.
                 </small>
               </div>
 
-              {/* ================= BEGINNER MESSAGE ================= */}
+              {/* BEGINNER MESSAGE */}
 
               <div className="skill-proof-note">
                 <span>✦</span>
@@ -554,7 +681,7 @@ function Profile() {
                   <p>
                     That's completely fine. You don't need Codeforces,
                     certificates or other achievements to create a NEXORA
-                    profile. Start with your skills and interests, and add your
+                    profile. Start with your skills and interests and add
                     achievements as you grow.
                   </p>
                 </div>
@@ -562,7 +689,9 @@ function Profile() {
             </div>
           </section>
 
+          {/* ================================================= */}
           {/* SUBMIT */}
+          {/* ================================================= */}
 
           <div className="profile-submit">
             <button type="submit">

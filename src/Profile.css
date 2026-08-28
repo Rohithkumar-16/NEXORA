@@ -1241,3 +1241,35 @@
   border-color: rgba(255, 138, 101, 0.25);
   background: rgba(255, 138, 101, 0.04);
 }
+/* =========================================================
+   CREATE PROFILE - REMOVE WHITE INPUT HIGHLIGHT
+   ========================================================= */
+
+.profile-form input,
+.profile-form textarea,
+.profile-form select {
+  color: #c7d2df !important;
+  background-color: #0b111b !important;
+  -webkit-text-fill-color: #c7d2df !important;
+}
+
+.profile-form input:focus,
+.profile-form textarea:focus,
+.profile-form select:focus {
+  color: #c7d2df !important;
+  background-color: #0b111b !important;
+  -webkit-text-fill-color: #c7d2df !important;
+  outline: none;
+}
+
+/* Remove browser autofill white background */
+.profile-form input:-webkit-autofill,
+.profile-form input:-webkit-autofill:hover,
+.profile-form input:-webkit-autofill:focus,
+.profile-form textarea:-webkit-autofill,
+.profile-form select:-webkit-autofill {
+  -webkit-text-fill-color: #c7d2df !important;
+  -webkit-box-shadow: 0 0 0 1000px #0b111b inset !important;
+  box-shadow: 0 0 0 1000px #0b111b inset !important;
+  transition: background-color 9999s ease-in-out 0s;
+}

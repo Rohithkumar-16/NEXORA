@@ -5,19 +5,20 @@ import Profile from "./Profile";
 import Login from "./Login";
 import Signup from "./Signup";
 import ProfilePreview from "./ProfilePreview";
+import ProjectDetails from "./ProjectDetails";
 
 function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div className="app">
       {/* ================= NAVBAR ================= */}
+
       <nav className="navbar">
-        {/* LOGO */}
         <Link to="/" className="logo">
           NEXORA<span></span>
         </Link>
 
-        {/* MAIN NAVIGATION */}
         <div className={`nav-links ${menuOpen ? "active" : ""}`}>
           <a href="#home" onClick={() => setMenuOpen(false)}>
             Home
@@ -40,9 +41,13 @@ function Home() {
           </a>
         </div>
 
-        {/* AUTH + WHATSAPP */}
         <div className="nav-auth">
-          <a href="#" className="nav-whatsapp">
+          <a
+            href="https://chat.whatsapp.com/CcqTfXLodNu6PDmNYBTIfz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-whatsapp"
+          >
             WhatsApp
           </a>
 
@@ -55,7 +60,6 @@ function Home() {
           </Link>
         </div>
 
-        {/* MOBILE MENU */}
         <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>
           ☰
         </button>
@@ -111,21 +115,15 @@ function Home() {
         <div className="workflow-grid">
           <div className="workflow-card">
             <span>01</span>
-
             <div className="workflow-icon">👤</div>
-
             <h3>Create Profile</h3>
-
             <p>Add your studies, skills, interests, experience and goals.</p>
           </div>
 
           <div className="workflow-card">
             <span>02</span>
-
             <div className="workflow-icon">💡</div>
-
             <h3>Create or Discover</h3>
-
             <p>
               Create a project or discover projects that match your interests.
             </p>
@@ -133,11 +131,8 @@ function Home() {
 
           <div className="workflow-card">
             <span>03</span>
-
             <div className="workflow-icon">🤖</div>
-
             <h3>AI Matching</h3>
-
             <p>
               NEXORA analyzes skills and project requirements to find potential
               teammates.
@@ -146,21 +141,15 @@ function Home() {
 
           <div className="workflow-card">
             <span>04</span>
-
             <div className="workflow-icon">🤝</div>
-
             <h3>Collaborate</h3>
-
             <p>Send collaboration requests and form your project team.</p>
           </div>
 
           <div className="workflow-card">
             <span>05</span>
-
             <div className="workflow-icon">🚀</div>
-
             <h3>Build Together</h3>
-
             <p>
               Work inside a shared project workspace and track your progress.
             </p>
@@ -188,7 +177,6 @@ function Home() {
         <div className="projects-grid">
           <div className="project-card">
             <div className="project-number">01</div>
-
             <div className="project-icon">🏥</div>
 
             <h3>AI Healthcare Assistant</h3>
@@ -204,12 +192,13 @@ function Home() {
               <span>React</span>
             </div>
 
-            <button>View Project →</button>
+            <Link to="/project/ai-healthcare" className="project-view-button">
+              View Project →
+            </Link>
           </div>
 
           <div className="project-card">
             <div className="project-number">02</div>
-
             <div className="project-icon">🌱</div>
 
             <h3>Smart Agriculture</h3>
@@ -225,12 +214,16 @@ function Home() {
               <span>Data</span>
             </div>
 
-            <button>View Project →</button>
+            <Link
+              to="/project/smart-agriculture"
+              className="project-view-button"
+            >
+              View Project →
+            </Link>
           </div>
 
           <div className="project-card">
             <div className="project-number">03</div>
-
             <div className="project-icon">🔐</div>
 
             <h3>Student Security Platform</h3>
@@ -246,7 +239,12 @@ function Home() {
               <span>JavaScript</span>
             </div>
 
-            <button>View Project →</button>
+            <Link
+              to="/project/student-security"
+              className="project-view-button"
+            >
+              View Project →
+            </Link>
           </div>
         </div>
       </section>
@@ -280,7 +278,6 @@ function Home() {
             <div className="match-header">
               <div>
                 <small>AI MATCH</small>
-
                 <h3>Recommended Teammate</h3>
               </div>
 
@@ -292,16 +289,13 @@ function Home() {
 
               <div>
                 <strong>Student Profile</strong>
-
                 <p>AI • Python • Data Science</p>
               </div>
             </div>
 
             <div className="match-skills">
               <span>Python ✓</span>
-
               <span>Machine Learning ✓</span>
-
               <span>Data Science ✓</span>
             </div>
 
@@ -343,7 +337,6 @@ function Home() {
             <div className="team-avatar">K</div>
 
             <h3>You</h3>
-
             <p>AI • Python</p>
           </div>
 
@@ -356,7 +349,6 @@ function Home() {
             <div className="team-avatar">R</div>
 
             <h3>Teammate</h3>
-
             <p>React • UI/UX</p>
           </div>
 
@@ -369,7 +361,6 @@ function Home() {
             <div className="team-avatar">S</div>
 
             <h3>Teammate</h3>
-
             <p>Backend • SQL</p>
           </div>
         </div>
@@ -411,27 +402,157 @@ function Home() {
             <div className="workspace-stats">
               <div>
                 <strong>12</strong>
-
                 <small>Tasks</small>
               </div>
 
               <div>
                 <strong>3</strong>
-
                 <small>Milestones</small>
               </div>
 
               <div>
                 <strong>24</strong>
-
                 <small>Discussions</small>
               </div>
 
               <div>
                 <strong>8</strong>
-
                 <small>Resources</small>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================= */}
+      {/* ================= NEXORA CREATORS ======================== */}
+      {/* ========================================================= */}
+
+      <section className="creators-section" id="creators">
+        <div className="section-heading">
+          <p className="section-label">MEET THE CREATORS</p>
+
+          <h2>
+            The team behind
+            <span> NEXORA.</span>
+          </h2>
+
+          <p className="section-description">
+            Meet the students who designed and developed NEXORA to make student
+            collaboration smarter and easier.
+          </p>
+        </div>
+
+        <div className="creators-grid">
+          {/* ================= KEVIN ================= */}
+
+          <div className="creator-card">
+            <div className="creator-avatar">K</div>
+
+            <div className="creator-info">
+              <span className="creator-number">01</span>
+
+              <h3>Kevin Varghees</h3>
+
+              <p className="creator-role">Frontend Developer</p>
+
+              <p className="creator-description">
+                Designed and developed the frontend experience of NEXORA,
+                focusing on the user interface and overall user experience.
+              </p>
+
+              <a
+                href="https://www.linkedin.com/in/kevin-varghees-72a413373"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="creator-linkedin"
+              >
+                LinkedIn ↗
+              </a>
+            </div>
+          </div>
+
+          {/* ================= POOJA ================= */}
+
+          <div className="creator-card">
+            <div className="creator-avatar">P</div>
+
+            <div className="creator-info">
+              <span className="creator-number">02</span>
+
+              <h3>Pooja B D</h3>
+
+              <p className="creator-role">Backend Developer</p>
+
+              <p className="creator-description">
+                Worked on the backend architecture and systems that power
+                NEXORA's core functionality.
+              </p>
+
+              <a
+                href="https://www.linkedin.com/in/pooja-b-d-b44b75423"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="creator-linkedin"
+              >
+                LinkedIn ↗
+              </a>
+            </div>
+          </div>
+
+          {/* ================= ROHITH ================= */}
+
+          <div className="creator-card">
+            <div className="creator-avatar">R</div>
+
+            <div className="creator-info">
+              <span className="creator-number">03</span>
+
+              <h3>Rohith Kumar</h3>
+
+              <p className="creator-role">Integration & Testing</p>
+
+              <p className="creator-description">
+                Focused on integrating the different components of NEXORA and
+                testing the platform to ensure everything works together.
+              </p>
+
+              <a
+                href="https://www.linkedin.com/in/rohith-kumar-365b72423"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="creator-linkedin"
+              >
+                LinkedIn ↗
+              </a>
+            </div>
+          </div>
+
+          {/* ================= NITHIN ================= */}
+
+          <div className="creator-card">
+            <div className="creator-avatar">N</div>
+
+            <div className="creator-info">
+              <span className="creator-number">04</span>
+
+              <h3>Nithin S Patel</h3>
+
+              <p className="creator-role">Presentation</p>
+
+              <p className="creator-description">
+                Handled the presentation and communication of the NEXORA project
+                and helped showcase the platform effectively.
+              </p>
+
+              <a
+                href="https://www.linkedin.com/in/nithin-s-patel-a52767391"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="creator-linkedin"
+              >
+                LinkedIn ↗
+              </a>
             </div>
           </div>
         </div>
@@ -500,6 +621,8 @@ function Home() {
 
           <a href="#matching">AI Matching</a>
 
+          <a href="#creators">Creators</a>
+
           <Link to="/profile">Profile</Link>
         </div>
 
@@ -514,10 +637,16 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+
         <Route path="/profile" element={<Profile />} />
+
         <Route path="/profile-preview" element={<ProfilePreview />} />
+
         <Route path="/login" element={<Login />} />
+
         <Route path="/signup" element={<Signup />} />
+
+        <Route path="/project/:projectId" element={<ProjectDetails />} />
       </Routes>
     </BrowserRouter>
   );
