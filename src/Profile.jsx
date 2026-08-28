@@ -6,10 +6,14 @@ function Profile() {
   const navigate = useNavigate();
   const [profile, setProfile] = useState({
     name: "",
+    college: "",
     studies: "",
+    year: "",
     experience: "",
     skills: [],
+    customSkill: "",
     interests: [],
+    customInterest: "",
     goals: "",
     lookingFor: "",
     linkedin: "",
@@ -79,6 +83,9 @@ function Profile() {
 
     console.log("NEXORA PROFILE:", profile);
 
+    // Save profile in browser storage
+    localStorage.setItem("nexoraProfile", JSON.stringify(profile));
+
     alert("Your NEXORA profile has been created!");
 
     navigate("/profile-preview");
@@ -90,7 +97,7 @@ function Profile() {
 
       <nav className="profile-navbar">
         <a href="/" className="profile-logo">
-          NEXORA<span>.</span>
+          NEXORA<span></span>
         </a>
 
         <a href="/" className="profile-back">

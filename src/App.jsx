@@ -4,6 +4,7 @@ import "./App.css";
 import Profile from "./Profile";
 import Login from "./Login";
 import Signup from "./Signup";
+import ProfilePreview from "./ProfilePreview";
 
 function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -514,6 +515,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/profile-preview" element={<ProfilePreview />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>

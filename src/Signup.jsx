@@ -41,7 +41,7 @@ function Signup() {
 
       <nav className="signup-navbar">
         <a href="/" className="signup-logo">
-          NEXORA<span>.</span>
+          NEXORA<span></span>
         </a>
 
         <a href="/" className="signup-back">

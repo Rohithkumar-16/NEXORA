@@ -24,7 +24,7 @@ function Login() {
 
       <nav className="login-navbar">
         <a href="/" className="login-logo">
-          NEXORA<span>.</span>
+          NEXORA<span></span>
         </a>
 
         <a href="/" className="login-back">
