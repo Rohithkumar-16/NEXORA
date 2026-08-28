@@ -1,0 +1,428 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: white;
+  color: #172033;
+}
+
+/* NAVBAR */
+
+.navbar {
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 50px;
+
+  border-bottom: 1px solid #eeeeee;
+
+  background: white;
+}
+
+/* LOGO */
+
+.logo {
+  margin-right: 50px;
+}
+
+.logo-box {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #6256e8;
+
+  color: white;
+
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* NAV LINKS */
+
+.nav-links {
+  display: flex;
+
+  gap: 30px;
+
+  flex: 1;
+}
+
+.nav-links a {
+  text-decoration: none;
+
+  color: #667085;
+
+  font-size: 14px;
+
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #6256e8;
+}
+
+/* BUTTONS */
+.nav-button {
+  display: inline-block;
+
+  background: #f28c38;
+
+  border: 1px solid #f28c38;
+
+  color: #050608;
+
+  padding: 11px 20px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  transition: 0.3s;
+}
+
+.nav-button:hover {
+  background: transparent;
+
+  color: #f28c38;
+
+  box-shadow: 0 0 20px rgba(242, 140, 56, 0.12);
+}
+
+.login-btn {
+  background: transparent;
+
+  border: none;
+
+  padding: 10px 15px;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  color: #475467;
+
+  cursor: pointer;
+}
+
+.start-btn {
+  background: #6256e8;
+
+  color: white;
+
+  border: none;
+
+  padding: 11px 18px;
+
+  border-radius: 9px;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.start-btn:hover {
+  background: #5146d8;
+}
+/* =========================
+   HERO SECTION
+========================= */
+.hero {
+  background:
+    radial-gradient(
+      circle at 85% 35%,
+      rgba(242, 140, 56, 0.18),
+      transparent 28%
+    ),
+    radial-gradient(circle at 70% 70%, rgba(28, 91, 145, 0.3), transparent 35%),
+    linear-gradient(135deg, #050608 0%, #071a2f 55%, #0d2945 100%);
+
+  /* LEFT SIDE */
+
+  .hero-content {
+    max-width: 650px;
+
+    margin-left: auto;
+  }
+
+  .hero-tag {
+    display: inline-block;
+
+    padding: 9px 14px;
+
+    border-radius: 30px;
+
+    background: rgba(242, 140, 56, 0.12);
+
+    color: #f28c38;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    margin-bottom: 25px;
+  }
+
+  .hero h1 {
+    font-size: 64px;
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+
+    color: #f7f5f1;
+  }
+
+  .hero h1 span {
+    color: #f28c38;
+  }
+
+  .hero-content > p {
+    max-width: 580px;
+
+    margin-top: 22px;
+
+    color: #b9c5d2;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+  }
+
+  /* HERO BUTTONS */
+
+  .hero-buttons {
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 30px;
+  }
+
+  .explore-btn {
+    background: #6256e8;
+
+    color: white;
+
+    border: none;
+
+    padding: 14px 22px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+  }
+
+  .explore-btn:hover {
+    background: #5146d8;
+  }
+
+  .journey-btn {
+    background: white;
+
+    color: #344054;
+
+    border: 1px solid #dfe3eb;
+
+    padding: 14px 20px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+  }
+
+  .journey-btn:hover {
+    border-color: #6256e8;
+  }
+
+  /* FOUR STEPS */
+
+  .hero-steps {
+    display: flex;
+
+    gap: 30px;
+
+    margin-top: 50px;
+  }
+
+  .hero-steps div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+  }
+
+  .hero-steps strong {
+    font-size: 12px;
+
+    color: #6256e8;
+  }
+
+  .hero-steps span {
+    font-size: 12px;
+
+    color: #7b8494;
+  }
+
+  /* =========================
+   HERO VISUAL
+========================= */
+
+  .hero-visual {
+    position: relative;
+
+    height: 430px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+  }
+
+  /* BACKGROUND CIRCLES */
+
+  .circle {
+    position: absolute;
+
+    border-radius: 50%;
+
+    border: 1px solid #dedcff;
+  }
+
+  .circle-one {
+    width: 380px;
+
+    height: 380px;
+  }
+
+  .circle-two {
+    width: 270px;
+
+    height: 270px;
+  }
+
+  /* MAIN LOGO */
+
+  .hero-logo {
+    position: relative;
+
+    z-index: 5;
+
+    width: 145px;
+
+    height: 145px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 42px;
+
+    background: white;
+
+    border: 1px solid #e5e7ef;
+
+    box-shadow: 0 25px 60px rgba(50, 45, 120, 0.14);
+
+    color: #6256e8;
+
+    font-size: 70px;
+
+    font-weight: 900;
+  }
+
+  /* FLOATING CARDS */
+
+  .floating-card {
+    position: absolute;
+
+    z-index: 10;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px 17px;
+
+    background: white;
+
+    border: 1px solid #e6e8ef;
+
+    border-radius: 14px;
+
+    box-shadow: 0 15px 40px rgba(30, 35, 60, 0.1);
+  }
+
+  .floating-card > div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+  }
+
+  .floating-card strong {
+    font-size: 13px;
+
+    color: #172033;
+  }
+
+  .floating-card small {
+    font-size: 10px;
+
+    color: #7b8494;
+  }
+
+  /* CARD POSITIONS */
+
+  .card-discover {
+    top: 35px;
+
+    left: 10px;
+  }
+
+  .card-connect {
+    top: 155px;
+
+    right: -10px;
+  }
+
+  .card-build {
+    bottom: 40px;
+
+    left: 50px;
+  }
+}

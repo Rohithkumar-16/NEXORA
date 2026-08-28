@@ -1,0 +1,1243 @@
+/* =========================================
+   NEXORA — STUDENT PROFILE
+   DARK AI THEME
+========================================= */
+
+.profile-page {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(78, 70, 229, 0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(0, 210, 255, 0.13),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 70% 80%,
+      rgba(217, 70, 239, 0.12),
+      transparent 32%
+    ),
+    #050608;
+
+  color: #ffffff;
+}
+
+/* =========================================
+   ANIMATED BACKGROUND
+========================================= */
+
+.profile-page::before {
+  content: "";
+
+  position: fixed;
+
+  width: 500px;
+  height: 500px;
+
+  top: 10%;
+  left: -180px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    rgba(70, 80, 255, 0.25),
+    rgba(0, 220, 255, 0.08),
+    rgba(220, 60, 240, 0.18)
+  );
+
+  filter: blur(80px);
+
+  animation: profileGlow 9s ease-in-out infinite alternate;
+
+  pointer-events: none;
+}
+
+.profile-page::after {
+  content: "";
+
+  position: fixed;
+
+  width: 450px;
+  height: 450px;
+
+  right: -160px;
+  bottom: 5%;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    rgba(0, 210, 255, 0.16),
+    rgba(120, 70, 255, 0.2),
+    rgba(240, 70, 180, 0.12)
+  );
+
+  filter: blur(90px);
+
+  animation: profileGlowTwo 11s ease-in-out infinite alternate;
+
+  pointer-events: none;
+}
+
+@keyframes profileGlow {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(100px, 70px) scale(1.15);
+  }
+
+  100% {
+    transform: translate(30px, 130px) scale(0.95);
+  }
+}
+
+@keyframes profileGlowTwo {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-100px, -60px) scale(1.2);
+  }
+
+  100% {
+    transform: translate(-40px, 40px) scale(0.9);
+  }
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.profile-navbar {
+  position: relative;
+  z-index: 10;
+
+  height: 76px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 8%;
+
+  background: rgba(5, 6, 8, 0.55);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+  backdrop-filter: blur(20px);
+}
+
+.profile-logo {
+  text-decoration: none;
+
+  color: #ffffff;
+
+  font-size: 23px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.profile-logo span {
+  color: #7c7cff;
+}
+
+.profile-back {
+  color: #858b9a;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  transition: 0.3s ease;
+}
+
+.profile-back:hover {
+  color: #ffffff;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.profile-header {
+  position: relative;
+  z-index: 2;
+
+  max-width: 850px;
+
+  margin: auto;
+
+  padding: 90px 20px 70px;
+
+  text-align: center;
+}
+
+.profile-badge {
+  display: inline-flex;
+
+  padding: 8px 15px;
+
+  margin-bottom: 22px;
+
+  border: 1px solid rgba(124, 124, 255, 0.3);
+
+  border-radius: 50px;
+
+  background: rgba(124, 124, 255, 0.06);
+
+  color: #9da3ff;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.profile-header h1 {
+  margin: 0;
+
+  font-size: clamp(45px, 6vw, 72px);
+
+  line-height: 1.02;
+
+  letter-spacing: -3px;
+}
+
+.profile-header h1 span {
+  display: inline-block;
+
+  background: linear-gradient(90deg, #7c7cff, #00d9ff, #d946ef);
+
+  background-size: 200% auto;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+
+  animation: gradientText 5s linear infinite;
+}
+
+@keyframes gradientText {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.profile-header p {
+  max-width: 650px;
+
+  margin: 25px auto 0;
+
+  color: #8c93a3;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+/* =========================================
+   FORM CONTAINER
+========================================= */
+
+.profile-container {
+  position: relative;
+  z-index: 2;
+
+  width: min(1000px, 90%);
+
+  margin: auto;
+
+  padding-bottom: 100px;
+}
+
+/* =========================================
+   PROFILE SECTIONS
+========================================= */
+
+.profile-section {
+  display: grid;
+
+  grid-template-columns: 65px 1fr;
+
+  gap: 25px;
+
+  padding: 45px 0;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.profile-step {
+  padding-top: 6px;
+
+  color: #7c7cff;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.profile-section-content {
+  padding: 30px;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  border-radius: 18px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.045),
+    rgba(255, 255, 255, 0.015)
+  );
+
+  backdrop-filter: blur(18px);
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
+
+  transition: 0.35s ease;
+}
+
+.profile-section-content:hover {
+  border-color: rgba(124, 124, 255, 0.2);
+
+  transform: translateY(-2px);
+}
+
+.profile-section-content h2 {
+  margin: 0 0 10px;
+
+  font-size: 25px;
+
+  letter-spacing: -0.5px;
+}
+
+.profile-section-content > p {
+  margin: 0 0 28px;
+
+  color: #858c9c;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+/* =========================================
+   INPUT GRID
+========================================= */
+
+.profile-fields {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 18px;
+
+  margin-bottom: 18px;
+}
+
+.profile-field {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+
+  margin-bottom: 20px;
+}
+
+.profile-field label {
+  color: #b5bbc8;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* =========================================
+   INPUTS
+========================================= */
+
+.profile-field input,
+.profile-field select,
+.profile-section-content textarea {
+  box-sizing: border-box;
+
+  width: 100%;
+
+  padding: 15px 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 10px;
+
+  outline: none;
+
+  background: rgba(3, 7, 14, 0.75);
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  transition: 0.3s ease;
+}
+
+.profile-field input::placeholder,
+.profile-section-content textarea::placeholder {
+  color: #505767;
+}
+
+.profile-field input:focus,
+.profile-field select:focus,
+.profile-section-content textarea:focus {
+  border-color: rgba(0, 217, 255, 0.5);
+
+  box-shadow:
+    0 0 0 3px rgba(0, 217, 255, 0.05),
+    0 0 25px rgba(0, 217, 255, 0.06);
+}
+
+.profile-field select {
+  cursor: pointer;
+}
+
+.profile-field select option {
+  background: #080b12;
+
+  color: #ffffff;
+}
+
+.profile-section-content textarea {
+  min-height: 120px;
+
+  resize: vertical;
+
+  line-height: 1.7;
+}
+
+/* =========================================
+   SKILLS / INTERESTS
+========================================= */
+
+.profile-options {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 12px;
+}
+
+.profile-option {
+  min-height: 54px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 13px 15px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 11px;
+
+  background: rgba(3, 7, 14, 0.65);
+
+  color: #858c9c;
+
+  cursor: pointer;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  text-align: left;
+
+  transition: 0.25s ease;
+}
+
+.profile-option:hover {
+  color: #ffffff;
+
+  border-color: rgba(0, 217, 255, 0.35);
+
+  transform: translateY(-2px);
+}
+
+.option-check {
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: 1px solid #464d5c;
+
+  border-radius: 5px;
+
+  color: #00d9ff;
+
+  font-size: 11px;
+}
+
+.profile-option.selected {
+  color: #ffffff;
+
+  border-color: rgba(124, 124, 255, 0.55);
+
+  background: linear-gradient(
+    135deg,
+    rgba(124, 124, 255, 0.1),
+    rgba(0, 217, 255, 0.04)
+  );
+
+  box-shadow: inset 0 0 30px rgba(124, 124, 255, 0.03);
+}
+
+.profile-option.selected .option-check {
+  border-color: #00d9ff;
+
+  background: rgba(0, 217, 255, 0.08);
+}
+
+/* =========================================
+   SUBMIT
+========================================= */
+
+.profile-submit {
+  display: flex;
+
+  justify-content: center;
+
+  padding-top: 35px;
+}
+
+.profile-submit button {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 16px 30px;
+
+  border: 1px solid transparent;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(#080b12, #080b12) padding-box,
+    linear-gradient(90deg, #7c7cff, #00d9ff, #d946ef) border-box;
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.profile-submit button span {
+  font-size: 18px;
+
+  transition: 0.3s ease;
+}
+
+.profile-submit button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 15px 45px rgba(0, 217, 255, 0.1),
+    0 10px 35px rgba(217, 70, 239, 0.08);
+}
+
+.profile-submit button:hover span {
+  transform: translateX(5px);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 750px) {
+  .profile-navbar {
+    padding: 0 5%;
+  }
+
+  .profile-header {
+    padding: 70px 20px 55px;
+  }
+
+  .profile-header h1 {
+    letter-spacing: -2px;
+  }
+
+  .profile-container {
+    width: 90%;
+  }
+
+  .profile-section {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+
+    padding: 35px 0;
+  }
+
+  .profile-section-content {
+    padding: 24px;
+  }
+
+  .profile-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-options {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-logo {
+    font-size: 19px;
+  }
+
+  .profile-back {
+    font-size: 11px;
+  }
+
+  .profile-header h1 {
+    font-size: 40px;
+  }
+
+  .profile-header p {
+    font-size: 13px;
+  }
+
+  .profile-section-content {
+    padding: 20px;
+  }
+
+  .profile-options {
+    grid-template-columns: 1fr;
+  }
+}
+/* =========================================
+   PROFILE COMPLETION
+========================================= */
+
+.profile-completion {
+  margin-bottom: 20px;
+  padding: 22px 25px;
+
+  border: 1px solid rgba(124, 124, 255, 0.15);
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  backdrop-filter: blur(15px);
+}
+
+.completion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 14px;
+}
+
+.completion-header div {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.completion-header span {
+  color: #7c7cff;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.completion-header strong {
+  color: #ffffff;
+
+  font-size: 18px;
+}
+
+.completion-header p {
+  margin: 0;
+
+  color: #686f80;
+
+  font-size: 11px;
+}
+
+.completion-bar {
+  width: 100%;
+  height: 5px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.completion-progress {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: linear-gradient(90deg, #7c7cff, #00d9ff, #d946ef);
+
+  transition: width 0.4s ease;
+}
+/* =========================================
+   LINKEDIN / PROFESSIONAL IDENTITY
+========================================= */
+
+.linkedin-actions {
+  display: flex;
+  margin-top: -5px;
+  margin-bottom: 25px;
+}
+
+.linkedin-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 11px 16px;
+
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  border-radius: 9px;
+
+  background: rgba(0, 217, 255, 0.04);
+
+  color: #00d9ff;
+
+  text-decoration: none;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  transition: 0.3s ease;
+}
+
+.linkedin-button:hover {
+  border-color: rgba(0, 217, 255, 0.5);
+
+  background: rgba(0, 217, 255, 0.08);
+
+  transform: translateY(-2px);
+}
+
+.identity-proof {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 14px;
+
+  margin-bottom: 25px;
+  padding: 16px;
+
+  border: 1px solid rgba(124, 124, 255, 0.12);
+
+  border-radius: 12px;
+
+  background: rgba(124, 124, 255, 0.035);
+}
+
+.identity-proof-icon {
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: rgba(0, 217, 255, 0.08);
+
+  color: #00d9ff;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.identity-proof strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #d8dce6;
+
+  font-size: 12px;
+}
+
+.identity-proof p {
+  margin: 0;
+
+  color: #747b8b;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+}
+
+.profile-field input[type="file"] {
+  padding: 12px;
+
+  cursor: pointer;
+
+  color: #858c9c;
+}
+
+.profile-field input[type="file"]::file-selector-button {
+  margin-right: 12px;
+
+  padding: 8px 12px;
+
+  border: 1px solid rgba(124, 124, 255, 0.2);
+
+  border-radius: 7px;
+
+  background: rgba(124, 124, 255, 0.08);
+
+  color: #9da3ff;
+
+  font-family: inherit;
+
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+.upload-note {
+  margin-top: -3px;
+
+  color: #555d6d;
+
+  font-size: 10px;
+}
+/* =========================================
+   SKILL PROOF
+========================================= */
+
+.proof-card {
+  padding: 18px;
+
+  margin-bottom: 15px;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  border-radius: 12px;
+
+  background: rgba(3, 7, 14, 0.55);
+}
+
+.proof-card-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 14px;
+}
+
+.proof-card-header strong {
+  display: block;
+
+  color: #ffffff;
+
+  font-size: 13px;
+
+  margin-bottom: 4px;
+}
+
+.proof-card-header span {
+  color: #686f80;
+
+  font-size: 10px;
+}
+
+.proof-status {
+  padding: 5px 9px;
+
+  border: 1px solid rgba(124, 124, 255, 0.2);
+
+  border-radius: 20px;
+
+  color: #9da3ff;
+
+  font-size: 9px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+.proof-card input {
+  box-sizing: border-box;
+
+  width: 100%;
+
+  padding: 13px 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 9px;
+
+  outline: none;
+
+  background: rgba(3, 7, 14, 0.75);
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 12px;
+}
+
+.proof-card input:focus {
+  border-color: rgba(0, 217, 255, 0.5);
+}
+
+.skill-proof-note {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 10px;
+
+  margin-top: 20px;
+
+  padding: 14px;
+
+  border-radius: 10px;
+
+  background: rgba(0, 217, 255, 0.03);
+
+  border: 1px solid rgba(0, 217, 255, 0.08);
+}
+
+.skill-proof-note span {
+  color: #00d9ff;
+
+  font-size: 15px;
+}
+
+.skill-proof-note p {
+  margin: 0;
+
+  color: #687080;
+
+  font-size: 10px;
+
+  line-height: 1.6;
+}
+.linkedin-input-row {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.linkedin-input-row input {
+  flex: 1;
+}
+
+.linkedin-open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 16px;
+
+  border: 1px solid rgba(0, 217, 255, 0.25);
+  border-radius: 10px;
+
+  background: rgba(0, 217, 255, 0.05);
+
+  color: #00d9ff;
+
+  text-decoration: none;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  transition: 0.3s ease;
+}
+
+.linkedin-open:hover {
+  background: rgba(0, 217, 255, 0.1);
+  border-color: rgba(0, 217, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .linkedin-input-row {
+    flex-direction: column;
+  }
+
+  .linkedin-open {
+    min-height: 42px;
+  }
+}
+/* =========================================
+   OPTIONAL LABEL
+========================================= */
+
+.optional-label {
+  margin-left: 6px;
+
+  color: #626a7a;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   CREATE ACCOUNT
+========================================= */
+
+.identity-create {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-top: 5px;
+  margin-bottom: 22px;
+
+  padding: 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  border-radius: 11px;
+
+  background: rgba(3, 7, 14, 0.4);
+}
+
+.identity-create strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #bfc5d2;
+
+  font-size: 12px;
+}
+
+.identity-create p {
+  margin: 0;
+
+  color: #626a79;
+
+  font-size: 10px;
+
+  line-height: 1.5;
+}
+
+.create-account-button {
+  flex-shrink: 0;
+
+  padding: 10px 14px;
+
+  border: 1px solid rgba(0, 217, 255, 0.2);
+
+  border-radius: 8px;
+
+  background: rgba(0, 217, 255, 0.04);
+
+  color: #00d9ff;
+
+  text-decoration: none;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  transition: 0.3s ease;
+}
+
+.create-account-button:hover {
+  background: rgba(0, 217, 255, 0.1);
+
+  border-color: rgba(0, 217, 255, 0.5);
+
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   PROOF HELP
+========================================= */
+
+.proof-help {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-top: 11px;
+}
+
+.proof-help span {
+  color: #626a79;
+
+  font-size: 10px;
+}
+
+.proof-help a {
+  color: #7c7cff;
+
+  text-decoration: none;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  transition: 0.3s ease;
+}
+
+.proof-help a:hover {
+  color: #00d9ff;
+}
+
+/* =========================================
+   ACHIEVEMENT NOTE
+========================================= */
+
+.achievement-note {
+  display: block;
+
+  margin-top: 7px;
+
+  color: #555d6d;
+
+  font-size: 10px;
+}
+
+/* =========================================
+   SKILL PROOF NOTE
+========================================= */
+
+.skill-proof-note {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+  margin-top: 20px;
+
+  padding: 16px;
+
+  border: 1px solid rgba(0, 217, 255, 0.08);
+
+  border-radius: 11px;
+
+  background: rgba(0, 217, 255, 0.025);
+}
+
+.skill-proof-note > span {
+  color: #00d9ff;
+
+  font-size: 16px;
+}
+
+.skill-proof-note strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #bfc5d2;
+
+  font-size: 11px;
+}
+
+.skill-proof-note p {
+  margin: 0;
+
+  color: #687080;
+
+  font-size: 10px;
+
+  line-height: 1.6;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .identity-create {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .create-account-button {
+    width: 100%;
+
+    text-align: center;
+  }
+
+  .proof-help {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 7px;
+  }
+}
+.required-label {
+  margin-left: 6px;
+  color: #ff8a65;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.required-status {
+  color: #ff8a65;
+  border-color: rgba(255, 138, 101, 0.25);
+  background: rgba(255, 138, 101, 0.04);
+}

@@ -1,0 +1,372 @@
+/* =========================================
+   NEXORA — LOGIN PAGE
+========================================= */
+
+.login-page {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(78, 70, 229, 0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(0, 210, 255, 0.13),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 70% 80%,
+      rgba(217, 70, 239, 0.12),
+      transparent 32%
+    ),
+    #050608;
+
+  color: #ffffff;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.login-navbar {
+  height: 76px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 8%;
+
+  background: rgba(5, 6, 8, 0.55);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+  backdrop-filter: blur(20px);
+}
+
+.login-logo {
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 23px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.login-logo span {
+  color: #7c7cff;
+}
+
+.login-back {
+  color: #858b9a;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  transition: 0.3s ease;
+}
+
+.login-back:hover {
+  color: #ffffff;
+}
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.login-container {
+  width: min(430px, 90%);
+
+  margin: auto;
+
+  padding: 60px 0 80px;
+
+  text-align: center;
+}
+
+/* =========================================
+   BADGE
+========================================= */
+
+.login-badge {
+  display: inline-flex;
+
+  padding: 8px 15px;
+
+  margin-bottom: 22px;
+
+  border: 1px solid rgba(124, 124, 255, 0.3);
+
+  border-radius: 50px;
+
+  background: rgba(124, 124, 255, 0.06);
+
+  color: #9da3ff;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.login-container h1 {
+  margin: 0;
+
+  font-size: clamp(45px, 6vw, 62px);
+
+  line-height: 1;
+
+  letter-spacing: -3px;
+}
+
+.login-container h1 span {
+  background: linear-gradient(90deg, #7c7cff, #00d9ff, #d946ef);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.login-description {
+  margin: 20px auto 35px;
+
+  color: #858c9c;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+/* =========================================
+   FORM
+========================================= */
+
+.login-form {
+  padding: 30px;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  backdrop-filter: blur(18px);
+
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+
+  text-align: left;
+}
+
+/* =========================================
+   FIELDS
+========================================= */
+
+.login-field {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+
+  margin-bottom: 20px;
+}
+
+.login-field label {
+  color: #b5bbc8;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.login-field input {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 15px 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 10px;
+
+  outline: none;
+
+  background: rgba(3, 7, 14, 0.75);
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  transition: 0.3s ease;
+}
+
+.login-field input::placeholder {
+  color: #505767;
+}
+
+.login-field input:focus {
+  border-color: rgba(0, 217, 255, 0.5);
+
+  box-shadow:
+    0 0 0 3px rgba(0, 217, 255, 0.05),
+    0 0 25px rgba(0, 217, 255, 0.06);
+}
+
+/* =========================================
+   FORGOT PASSWORD
+========================================= */
+
+.login-options {
+  display: flex;
+
+  justify-content: flex-end;
+
+  margin-top: -5px;
+
+  margin-bottom: 25px;
+}
+
+.login-options a {
+  color: #7c7cff;
+
+  text-decoration: none;
+
+  font-size: 11px;
+}
+
+.login-options a:hover {
+  color: #00d9ff;
+}
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.login-button {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 15px;
+
+  padding: 15px;
+
+  border: 1px solid transparent;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(#080b12, #080b12) padding-box,
+    linear-gradient(90deg, #7c7cff, #00d9ff, #d946ef) border-box;
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.login-button span {
+  font-size: 18px;
+
+  transition: 0.3s ease;
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 15px 45px rgba(0, 217, 255, 0.1),
+    0 10px 35px rgba(217, 70, 239, 0.08);
+}
+
+.login-button:hover span {
+  transform: translateX(5px);
+}
+
+/* =========================================
+   SIGNUP
+========================================= */
+
+.login-signup {
+  margin-top: 25px;
+
+  color: #686f80;
+
+  font-size: 12px;
+}
+
+.login-signup a {
+  color: #9da3ff;
+
+  text-decoration: none;
+
+  font-weight: 600;
+}
+
+.login-signup a:hover {
+  color: #00d9ff;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .login-navbar {
+    padding: 0 5%;
+  }
+
+  .login-logo {
+    font-size: 19px;
+  }
+
+  .login-back {
+    font-size: 11px;
+  }
+
+  .login-container {
+    width: 90%;
+
+    padding-top: 45px;
+  }
+
+  .login-container h1 {
+    font-size: 42px;
+
+    letter-spacing: -2px;
+  }
+
+  .login-form {
+    padding: 22px;
+  }
+}
